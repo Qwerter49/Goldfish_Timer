@@ -1,11 +1,11 @@
 class UserTimersController < ApplicationController
     def index 
-        @usertimers = UserTimers.all 
+        @usertimers = UserTimer.all 
         render json: @usertimers
     end
 
     def show
-        @usertimer = UserTimers.find(params[:id])
+        @usertimer = UserTimer.find(params[:id])
 
         render json: @usertimer
     end
