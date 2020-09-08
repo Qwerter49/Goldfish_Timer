@@ -1,0 +1,2 @@
+class UserTimersController < ApplicationController
+end
