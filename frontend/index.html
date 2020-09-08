@@ -9,8 +9,17 @@
 </head>
 <body>
     <h1>Sign In</h1>
-    <h3>Username:</h3>
-    <h3>Password:</h3>
+    <form method="GET" action="http://localhost:3000/users">
+        <label for="username">Username:</label>
+        <input name="username" type="text" placeholder="Username:" required>
+        <label for="password">Password:</label>
+        <input name="password" type="text" placeholder="Password:" required>
+        <button type="submit">Login</button>
+    </form>
+    <section></section>
+    <h3>Sign in as Guest:</h3>
+    <h3>New user:</h3>
+
     
 </body>
 </html>
