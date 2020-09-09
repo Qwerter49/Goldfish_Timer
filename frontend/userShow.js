@@ -20,6 +20,33 @@
                         timerSection.append(timerCard)
                         let timeLeft = document.querySelector('.timer')
                         console.log(timeLeft)
+                        let minutes = timer.length
+let secondsRemaining = minutes * 60
+let setTimer = setInterval(tick, 1000)
+
+function customTimer() {
+    tick;
+}
+
+
+function tick () {
+    let min = Math.floor(secondsRemaining / 60) 
+    let sec = secondsRemaining - (min * 60)
+
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+    
+    let timer = min.toString() + ":" + sec;
+
+    console.log(timer)
+
+    if (secondsRemaining === 0){
+        console.log("done");
+        clearInterval(setTimer);
+    }
+    secondsRemaining--;
+}
                     })
             })
     }  
