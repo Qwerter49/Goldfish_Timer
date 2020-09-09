@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", function(){
-
     let params = new URLSearchParams(window.location.search)
     let id = params.get('id')
 
@@ -17,21 +15,14 @@ document.addEventListener("DOMContentLoaded", function(){
                     .then(response => response.json())
                     .then(timer => {
                         const timerCard = document.createElement('div')
-                        //timerCard.classList.add('timer')
+                        timerCard.classList.add("timer")
                         timerCard.textContent = timer.name 
                         timerSection.append(timerCard)
-                        timerCard.addEventListener("click", function(){
-                            //const timeLeft = timerCard.textContent
-                            console.log(timerCard.textContent)
-                        })
+                        let timeLeft = document.querySelector('.timer')
+                        console.log(timeLeft)
                     })
             })
-    }
+    }  
 
-    
-})
 
-window.addEventListener("load", function(){
-    //let timeLeft = document.querySelector('.timer')
-    console.log(document.querySelector('section'))
-})
+
