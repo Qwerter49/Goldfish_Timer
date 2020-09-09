@@ -10,46 +10,17 @@
     function renderTimers(user) {
         title.textContent = `${user.username}'s timers:`
             user.user_timers.forEach(user_timer => {
-                let timer_id = user_timer.timer_id
-                fetch(`http://localhost:3000/timers/${timer_id}`)
+                fetch(`http://localhost:3000/timers/${user_timer.timer_id}`)
                     .then(response => response.json())
                     .then(timer => {
                         const timerCard = document.createElement('div')
-                        timerCard.classList.add("timer")
-                        timerCard.textContent = timer.name 
+                        const timerString = document.createElement('h3')
+                        timerString.innerHTML = `<a href="timerShow.html?id=${timer.id}">${timer.name}</a>`
                         timerSection.append(timerCard)
-                        let timeLeft = document.querySelector('.timer')
-                        console.log(timeLeft)
-                        let minutes = timer.length
-let secondsRemaining = minutes * 60
-let setTimer = setInterval(tick, 1000)
-
-function customTimer() {
-    tick;
-}
-
-
-function tick () {
-    let min = Math.floor(secondsRemaining / 60) 
-    let sec = secondsRemaining - (min * 60)
-
-    if (sec < 10) {
-        sec = "0" + sec;
-    }
-    
-    let timer = min.toString() + ":" + sec;
-
-    console.log(timer)
-
-    if (secondsRemaining === 0){
-        console.log("done");
-        clearInterval(setTimer);
-    }
-    secondsRemaining--;
-}
-                    })
+                        timerCard.append(timerString)
+                            } 
+                    )
             })
-    }  
-
+        }
 
 
