@@ -2,21 +2,23 @@ let params = new URLSearchParams(window.location.search)
 let id = params.get('id')
 
 const timerSection = document.querySelector('section')
-
+const title = document.querySelector('h1')
 fetch(`http://localhost:3000/users/${id}`)
     .then(response => response.json())
-    .then(user => {
-        const displayName = document.createElement('h2')
-        displayName.textContent = user.username
-        timerSection.append(displayName)
+    .then(user => {renderTimers(user)})
+
+function renderTimers(user) {
+    title.textContent = `${user.username}'s timers:`
         user.user_timers.forEach(user_timer => {
             let timer_id = user_timer.timer_id
             fetch(`http://localhost:3000/timers/${timer_id}`)
                 .then(response => response.json())
                 .then(timer => {
-                    const timerName = document.createElement('h2')
-                    timerName.textContent = timer.name 
-                    timerSection.append(timerName)
+                    const timerCard = document.createElement('div')
+                    timerCard.classList.add('timer')
+                    timerCard.textContent = timer.name 
+                    timerSection.append(timerCard)
                 })
         })
-    })
+}
+
