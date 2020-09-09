@@ -1,3 +1,25 @@
+let params = new URLSearchParams(window.location.search)
+let id = params.get('id')
+
+fetch(`http://localhost:3000/timers/${id}`)
+    .then(response => response.json())
+    .then(timer => {
+        const 
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let setTimer = setInterval(tick(timer.length), 1000)
 //                         function tick (timerLength) {
 //                             let minutes = timerLength
